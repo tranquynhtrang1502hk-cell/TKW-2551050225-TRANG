@@ -1,0 +1,19 @@
+{
+  "name": "sanviet-saas",
+  "version": "1.0.0",
+  "description": "Nền tảng SaaS quản lý và đặt sân cầu lông SânViệt",
+  "type": "module",
+  "scripts": {
+    "dev": "tailwindcss -i ./src/input.css -o ./dist/output.css --watch",
+    "build": "tailwindcss -i ./src/input.css -o ./dist/output.css --minify"
+  },
+  "dependencies": {
+    "@tailwindcss/cli": "^4.0.0",
+    "tailwindcss": "^4.0.0"
+  },
+  "main": "index.js",
+  "devDependencies": {},
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

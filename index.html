@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SânViệt - Phần mềm Quản lý & Đặt sân Cầu lông Tự động 24/7</title>
+  <meta name="description" content="Nền tảng SaaS quản lý cụm sân cầu lông toàn diện: Đặt sân qua Zalo, tự động bật/tắt đèn rơ-le, thanh toán QR tự động và báo cáo doanh thu chi tiết.">
+  <link rel="stylesheet" href="./dist/output.css">
+</head>
+<body class="bg-surface text-ink font-body antialiased selection:bg-brand-600 selection:text-white">
+
+  <!-- Bỏ qua nội dung chính cho tính năng hỗ trợ người khuyết tật (Accessibility) -->
+  <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:rounded-md focus:bg-brand-600 focus:px-4 focus:py-2 focus:text-white">
+    Bỏ qua đến nội dung chính
+  </a>
+
+  <!-- SECTION 1: HEADER / NAVBAR -->
+  <header class="sticky top-0 z-50 border-b border-line bg-surface/90 backdrop-blur-md">
+    <nav class="section !py-4 flex items-center justify-between" aria-label="Điều hướng chính">
+      <a href="#" class="font-display text-2xl font-extrabold tracking-tight text-brand-600">
+        SânViệt<span class="text-accent-500">.</span>
+      </a>
+      
+      <ul class="hidden items-center gap-8 font-medium md:flex">
+        <li><a href="#tinh-nang" class="hover:text-brand-600 transition-colors">Tính năng</a></li>
+        <li><a href="#so-lieu" class="hover:text-brand-600 transition-colors">Hiệu quả</a></li>
+        <li><a href="#bang-gia" class="hover:text-brand-600 transition-colors">Bảng giá</a></li>
+        <li><a href="#faq" class="hover:text-brand-600 transition-colors">Hỏi đáp</a></li>
+      </ul>
+
+      <div class="flex items-center gap-4">
+        <a href="#dang-nhap" class="text-sm font-semibold hover:text-brand-600 transition-colors hidden sm:block">Đăng nhập</a>
+        <a href="#dung-thu" class="btn btn-primary">Dùng thử miễn phí</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- NỘI DUNG CHÍNH DỰ ÁN -->
+  <main id="main">
+
+    <!-- SECTION 2: HERO SECTION -->
+    <section class="section grid items-center gap-12 lg:grid-cols-2 lg:gap-16" aria-labelledby="hero-title">
+      <div>
+        <div class="inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-xs font-semibold text-brand-600 mb-6">
+          <span>🚀 Giải pháp Chuyển đổi số 2026</span>
+        </div>
+        <h1 id="hero-title" class="font-display text-brand-600 text-4xl font-extrabold leading-tight tracking-tight sm:text-5xl lg:text-6xl">
+          Quản lý & Đặt sân Cầu lông tự động 24/7
+        </h1>
+        <p class="text-muted mt-6 text-lg leading-relaxed">
+          Giải pháp toàn diện cho chủ sân cầu lông. Khách tự chọn lịch và thanh toán QR qua Zalo, hệ thống tự động bật/tắt đèn chiếu sáng theo giờ đặt. Lấp đầy 100% giờ trống!
+        </p>
+        <div class="mt-8 flex flex-col gap-4 sm:flex-row">
+          <a href="#dung-thu" class="btn btn-primary px-7 py-3.5 text-base">Trải nghiệm 14 ngày miễn phí</a>
+          <a href="#demo" class="btn border border-line px-7 py-3.5 text-base hover:bg-slate-50">Xem Sơ đồ Demo</a>
+        </div>
+      </div>
+      
+      <div class="flex justify-center">
+        <img src="./assets/img/hero-dashboard.png" alt="Giao diện bảng điều khiển quản lý sân cầu lông SânViệt" class="rounded-card border-line w-full max-w-lg border shadow-2xl transition-transform hover:scale-[1.02]">
+      </div>
+    </section>
+
+    <!-- SECTION 3: LOGO ĐỐI TÁC -->
+    <section class="border-y border-line bg-slate-50/50 py-12" aria-label="Đối tác tin tưởng">
+      <div class="section !py-0 text-center">
+        <h2 class="text-xs font-bold uppercase tracking-wider text-muted mb-8">Hơn 200+ Cụm sân cầu lông toàn quốc tin dùng</h2>
+        <div class="flex flex-wrap items-center justify-center gap-8 opacity-70 grayscale hover:grayscale-0 transition-all">
+          <span class="font-bold text-xl text-slate-400">VICTOR CLUB</span>
+          <span class="font-bold text-xl text-slate-400">YONEX ARENA</span>
+          <span class="font-bold text-xl text-slate-400">LINING CENTER</span>
+          <span class="font-bold text-xl text-slate-400">HAILONG BADMINTON</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: TÍNH NĂNG CHÍNH -->
+    <section id="tinh-nang" class="section" aria-labelledby="tinh-nang-title">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <h2 id="tinh-nang-title" class="font-display text-3xl font-bold sm:text-4xl text-ink">
+          Tính năng chuyên biệt cho Cụm Sân Cầu Lông
+        </h2>
+        <p class="text-muted mt-4 text-base">Cắt giảm 80% thời gian vận hành thủ công, chống thất thoát doanh thu tuyệt đối.</p>
+      </div>
+
+      <div class="grid gap-8 md:grid-cols-3">
+        <!-- Feature 1 -->
+        <article class="p-8 rounded-card border border-line bg-surface shadow-sm hover:shadow-md transition-shadow">
+          <div class="w-12 h-12 bg-emerald-100 text-brand-600 rounded-lg flex items-center justify-center font-bold text-xl mb-6">📲</div>
+          <h3 class="font-display text-xl font-bold mb-3">Đặt sân tự động Zalo QR</h3>
+          <p class="text-muted text-sm leading-relaxed">Khách hàng tra cứu lịch trống realtime, giữ chỗ và chuyển khoản ngân hàng QR tự động xác nhận 3 giây.</p>
+        </article>
+
+        <!-- Feature 2 -->
+        <article class="p-8 rounded-card border border-line bg-surface shadow-sm hover:shadow-md transition-shadow">
+          <div class="w-12 h-12 bg-amber-100 text-accent-500 rounded-lg flex items-center justify-center font-bold text-xl mb-6">💡</div>
+          <h3 class="font-display text-xl font-bold mb-3">Điều khiển Đèn Rơ-le Tự động</h3>
+          <p class="text-muted text-sm leading-relaxed">Hệ thống kết nối bộ rơ-le thông minh, tự bật đèn đúng giờ khách đặt và tắt ngay khi hết giờ.</p>
+        </article>
+
+        <!-- Feature 3 -->
+        <article class="p-8 rounded-card border border-line bg-surface shadow-sm hover:shadow-md transition-shadow">
+          <div class="w-12 h-12 bg-slate-100 text-ink rounded-lg flex items-center justify-center font-bold text-xl mb-6">🛒</div>
+          <h3 class="font-display text-xl font-bold mb-3">Bán lẻ Căng vợt & Nước uống</h3>
+          <p class="text-muted text-sm leading-relaxed">Tích hợp phần mềm POS bán lẻ nước giải khát, quấn cán, cầu lông. Quản lý chính xác tồn kho căng vợt.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- SECTION 5: SỐ LIỆU ẤN TƯỢNG -->
+    <section id="so-lieu" class="bg-brand-600 text-white py-20" aria-labelledby="so-lieu-title">
+      <div class="section !py-0 grid gap-8 sm:grid-cols-3 text-center">
+        <div>
+          <p class="font-display text-5xl font-extrabold mb-2">100.000+</p>
+          <p class="text-emerald-100 font-medium">Lượt đặt sân thành công / tháng</p>
+        </div>
+        <div>
+          <p class="font-display text-5xl font-extrabold mb-2">0%</p>
+          <p class="text-emerald-100 font-medium">Tình trạng trùng lịch giờ cao điểm</p>
+        </div>
+        <div>
+          <p class="font-display text-5xl font-extrabold mb-2">+35%</p>
+          <p class="text-emerald-100 font-medium">Tăng trưởng doanh thu giờ thấp điểm</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6: CẢM NHẬN KHÁCH HÀNG -->
+    <section class="section" aria-labelledby="danh-gia-title">
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <h2 id="danh-gia-title" class="font-display text-3xl font-bold">Chủ cụm sân nói gì về SânViệt</h2>
+      </div>
+
+      <figure class="max-w-3xl mx-auto p-8 rounded-card border border-line bg-slate-50/50 text-center">
+        <blockquote class="text-lg italic text-ink mb-6">
+          "Từ ngày dùng SânViệt, tôi không cần ngồi canh điện thoại rep tin nhắn Zalo đặt sân nữa. Khách tự chọn lịch rồi thanh toán tự động, đèn sân đúng giờ tự sáng. Tiết kiệm được bao nhiêu chi phí nhân sự!"
+        </blockquote>
+        <figcaption class="font-semibold text-brand-600">
+          - Anh Hoàng Minh
+          <span class="block text-xs font-normal text-muted mt-1">Chủ Cụm 8 sân Cầu lông Victor (Quận 7, TP.HCM)</span>
+        </figcaption>
+      </figure>
+    </section>
+
+    <!-- SECTION 7: BẢNG GIÁ -->
+    <section id="bang-gia" class="section border-t border-line" aria-labelledby="bang-gia-title">
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <h2 id="bang-gia-title" class="font-display text-3xl font-bold sm:text-4xl">Bảng giá gói dịch vụ</h2>
+        <p class="text-muted mt-3">Chọn gói phù hợp với quy mô cụm sân của bạn. Không phí ẩn.</p>
+      </div>
+
+      <div class="grid gap-8 md:grid-cols-2 max-w-4xl mx-auto">
+        <!-- Gói 1 -->
+        <div class="p-8 rounded-card border border-line bg-surface flex flex-col justify-between">
+          <div>
+            <h3 class="font-display text-2xl font-bold mb-2">Gói Cụm Nhỏ</h3>
+            <p class="text-muted text-sm mb-6">Dành cho sân quy mô dưới 5 sân</p>
+            <p class="text-4xl font-extrabold font-display mb-6">199.000đ <span class="text-base font-normal text-muted">/tháng</span></p>
+            <ul class="space-y-3 text-sm text-muted mb-8">
+              <li>✓ Quản lý tối đa 5 sân cầu</li>
+              <li>✓ Đặt sân tự động qua Zalo</li>
+              <li>✓ Báo cáo doanh thu cơ bản</li>
+            </ul>
+          </div>
+          <a href="#dang-ky" class="btn border border-line hover:bg-slate-50 w-full">Đăng ký ngay</a>
+        </div>
+
+        <!-- Gói 2 -->
+        <div class="p-8 rounded-card border-2 border-brand-600 bg-surface shadow-xl flex flex-col justify-between relative">
+          <span class="absolute -top-3.5 right-6 bg-brand-600 text-white text-xs font-bold px-3 py-1 rounded-full uppercase">Phổ biến nhất</span>
+          <div>
+            <h3 class="font-display text-2xl font-bold mb-2">Gói Chuyên Nghiệp</h3>
+            <p class="text-muted text-sm mb-6">Dành cho cụm sân lớn từ 5 - 20+ sân</p>
+            <p class="text-4xl font-extrabold font-display mb-6">499.000đ <span class="text-base font-normal text-muted">/tháng</span></p>
+            <ul class="space-y-3 text-sm text-muted mb-8">
+              <li>✓ Không giới hạn số lượng sân</li>
+              <li>✓ Tích hợp Rơ-le bật/tắt đèn tự động</li>
+              <li>✓ Bán lẻ POS (Nước, Căng vợt, Cầu)</li>
+              <li>✓ Hỗ trợ kỹ thuật ưu tiên 24/7</li>
+            </ul>
+          </div>
+          <a href="#dang-ky" class="btn btn-primary w-full">Dùng thử 14 ngày miễn phí</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 8: CÂU HỎI THƯỜNG GẶP -->
+    <section id="faq" class="section border-t border-line" aria-labelledby="faq-title">
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <h2 id="faq-title" class="font-display text-3xl font-bold">Giải đáp thắc mắc</h2>
+      </div>
+
+      <div class="max-w-3xl mx-auto space-y-4">
+        <details class="group p-6 rounded-card border border-line bg-surface [&_summary::-webkit-details-marker]:hidden">
+          <summary class="flex items-center justify-between font-semibold cursor-pointer text-ink">
+            Dùng thử 14 ngày có cần nhập thẻ tín dụng không?
+            <span class="transition group-open:rotate-180">👇</span>
+          </summary>
+          <p class="mt-4 text-muted text-sm leading-relaxed">
+            Hoàn toàn không! Bạn chỉ cần đăng ký số điện thoại là có thể trải nghiệm đầy đủ 100% tính năng trong vòng 14 ngày.
+          </p>
+        </details>
+
+        <details class="group p-6 rounded-card border border-line bg-surface [&_summary::-webkit-details-marker]:hidden">
+          <summary class="flex items-center justify-between font-semibold cursor-pointer text-ink">
+            Bộ rơ-le điều khiển đèn lắp đặt có phức tạp không?
+            <span class="transition group-open:rotate-180">👇</span>
+          </summary>
+          <p class="mt-4 text-muted text-sm leading-relaxed">
+            Đội ngũ kỹ thuật của SânViệt sẽ hỗ trợ đấu nối thiết bị tận nơi. Thiết bị cắm jack an toàn, không can thiệp vào đường điện chính của cụm sân.
+          </p>
+        </details>
+      </div>
+    </section>
+
+    <!-- SECTION 9: CALL TO ACTION -->
+    <section id="dang-ky" class="section" aria-labelledby="cta-title">
+      <div class="bg-slate-900 text-white rounded-card p-10 md:p-16 text-center max-w-4xl mx-auto">
+        <h2 id="cta-title" class="font-display text-3xl font-extrabold sm:text-4xl mb-4">
+          Bắt đầu tự động hóa Cụm sân của bạn hôm nay
+        </h2>
+        <p class="text-slate-400 text-base max-w-xl mx-auto mb-8">
+          Tham gia cùng hơn 200+ chủ sân đang tối ưu hóa doanh thu và tiết kiệm thời gian vận hành mỗi ngày.
+        </p>
+        <a href="#dung-thu" class="btn btn-primary px-8 py-4 text-base">Đăng ký tư vấn miễn phí ngay</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- SECTION 10: FOOTER -->
+  <footer class="border-t border-line bg-surface py-12">
+    <div class="section !py-0 flex flex-col md:flex-row items-center justify-between gap-6 text-sm text-muted">
+      <div class="flex items-center gap-2">
+        <span class="font-display text-xl font-bold text-brand-600">SânViệt.</span>
+        <span>© 2026 SânViệt SaaS Platform. All rights reserved.</span>
+      </div>
+      <div class="flex gap-6">
+        <a href="#" class="hover:text-brand-600">Điều khoản sử dụng</a>
+        <a href="#" class="hover:text-brand-600">Chính sách bảo mật</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
