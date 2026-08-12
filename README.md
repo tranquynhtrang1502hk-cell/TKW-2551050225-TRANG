@@ -1,4 +1,5 @@
-### NHIỆM VỤ 1 (ĐIỀN BẢNG TỪ LINK FIGMS CÓ SẴN):
+### BUỔI 1
+## NHIỆM VỤ 1 (ĐIỀN BẢNG TỪ LINK FIGMS CÓ SẴN):
 
 | Vai trò | Giá trị đọc trong Figma | Tên token của tôi | Class Tailwind |
 | :--- | :--- | :--- | :--- |
@@ -14,3 +15,16 @@
 | **Padding dọc section** | `96px` | — | `py-24` |
 | **Bo góc thẻ** | `14px` | `--radius-card` | `rounded-card` |
 
+### BUỔI 2 
+## Nhiệm vụ 1: Quy tắc chọn Flexbox hay Grid (Tiết 1)
+
+| STT | Frame / Section | Tình huống bố cục | Lựa chọn | Class Tailwind dự đoán |
+| :-: | :--- | :--- | :-: | :--- |
+| **1** | **Header / Navbar** | 1 hàng, kích thước co giãn theo nội dung | `flex` | `flex items-center justify-between gap-4` |
+| **2** | **Customer Logos** | Danh sách dài ngắn khác nhau, tự xuống dòng khi thiếu chỗ | `flex flex-wrap` | `flex flex-wrap items-center justify-center gap-x-12 gap-y-6` |
+| **3** | **Features Grid** | Lưới đều nhau, thẳng hàng cả dọc lẫn ngang | `grid` | `grid gap-6 sm:grid-cols-2 lg:grid-cols-3` |
+| **4** | **Pricing Cards** | Lưới 3 cột, kéo các thẻ cao bằng nhau | `grid` | `grid items-stretch gap-6 lg:grid-cols-3` |
+| **5** | **FAQ Section** | Lưới 2 cột tỉ lệ không đều | `grid` | `grid gap-12 lg:grid-cols-[1fr_1.4fr]` |
+| **6** | **Footer Links** | Lưới 4 cột thẳng hàng dọc & ngang | `grid` | `grid gap-10 sm:grid-cols-2 lg:grid-cols-4` |
+
+---
