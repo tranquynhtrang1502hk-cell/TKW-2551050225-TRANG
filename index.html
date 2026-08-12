@@ -144,48 +144,61 @@
       </figure>
     </section>
 
-    <!-- SECTION 7: BẢNG GIÁ -->
-    <section id="bang-gia" class="section border-t border-line" aria-labelledby="bang-gia-title">
-      <div class="text-center max-w-2xl mx-auto mb-16">
-        <h2 id="bang-gia-title" class="font-display text-3xl font-bold sm:text-4xl">Bảng giá gói dịch vụ</h2>
-        <p class="text-muted mt-3">Chọn gói phù hợp với quy mô cụm sân của bạn. Không phí ẩn.</p>
+    <!-- SECTION 7: BẢNG GIÁ (Nhiệm vụ 3) -->
+<section id="bang-gia" class="border-t bg-gray-50 py-16">
+  <div class="mx-auto max-w-6xl px-5 text-center">
+    <h2 class="text-3xl font-bold">Bảng giá dịch vụ</h2>
+    <p class="mt-2 text-sm text-gray-600">Chọn gói phù hợp với cụm sân của bạn</p>
+
+    <!-- Grid 3 thẻ: Mobile 1 cột -> Tablet 2 cột -> Desktop 3 cột -->
+    <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 text-left">
+      
+      <!-- Thẻ 1 -->
+      <div class="rounded-xl border bg-white p-6 shadow-sm flex flex-col justify-between">
+        <div>
+          <h3 class="text-xl font-bold">Gói Cụm Nhỏ</h3>
+          <p class="mt-4 text-3xl font-extrabold">199.000đ <span class="text-xs text-gray-500 font-normal">/tháng</span></p>
+          <ul class="mt-4 space-y-2 text-sm text-gray-600">
+            <li>✓ Dưới 5 sân cầu</li>
+            <li>✓ Đặt sân qua Zalo 24/7</li>
+            <li>✓ Báo cáo cơ bản</li>
+          </ul>
+        </div>
+        <a href="#dang-ky" class="mt-6 block rounded-lg border py-2 text-center text-sm font-semibold hover:bg-gray-50">Đăng ký</a>
       </div>
 
-      <div class="grid gap-8 md:grid-cols-2 max-w-4xl mx-auto">
-        <!-- Gói 1 -->
-        <div class="p-8 rounded-card border border-line bg-surface flex flex-col justify-between">
-          <div>
-            <h3 class="font-display text-2xl font-bold mb-2">Gói Cụm Nhỏ</h3>
-            <p class="text-muted text-sm mb-6">Dành cho sân quy mô dưới 5 sân</p>
-            <p class="text-4xl font-extrabold font-display mb-6">199.000đ <span class="text-base font-normal text-muted">/tháng</span></p>
-            <ul class="space-y-3 text-sm text-muted mb-8">
-              <li>✓ Quản lý tối đa 5 sân cầu</li>
-              <li>✓ Đặt sân tự động qua Zalo</li>
-              <li>✓ Báo cáo doanh thu cơ bản</li>
-            </ul>
-          </div>
-          <a href="#dang-ky" class="btn border border-line hover:bg-slate-50 w-full">Đăng ký ngay</a>
+      <!-- Thẻ 2 (Nổi bật) -->
+      <div class="relative rounded-xl border-2 border-blue-600 bg-white p-6 shadow-md flex flex-col justify-between">
+        <span class="absolute -top-3 right-4 rounded-full bg-blue-600 px-3 py-0.5 text-xs text-white font-bold">Phổ biến</span>
+        <div>
+          <h3 class="text-xl font-bold">Gói Chuyên Nghiệp</h3>
+          <p class="mt-4 text-3xl font-extrabold text-blue-600">499.000đ <span class="text-xs text-gray-500 font-normal">/tháng</span></p>
+          <ul class="mt-4 space-y-2 text-sm text-gray-600">
+            <li>✓ Không giới hạn sân</li>
+            <li>✓ Tự động bật/tắt đèn</li>
+            <li>✓ Bán hàng POS tại quầy</li>
+          </ul>
         </div>
-
-        <!-- Gói 2 -->
-        <div class="p-8 rounded-card border-2 border-brand-600 bg-surface shadow-xl flex flex-col justify-between relative">
-          <span class="absolute -top-3.5 right-6 bg-brand-600 text-white text-xs font-bold px-3 py-1 rounded-full uppercase">Phổ biến nhất</span>
-          <div>
-            <h3 class="font-display text-2xl font-bold mb-2">Gói Chuyên Nghiệp</h3>
-            <p class="text-muted text-sm mb-6">Dành cho cụm sân lớn từ 5 - 20+ sân</p>
-            <p class="text-4xl font-extrabold font-display mb-6">499.000đ <span class="text-base font-normal text-muted">/tháng</span></p>
-            <ul class="space-y-3 text-sm text-muted mb-8">
-              <li>✓ Không giới hạn số lượng sân</li>
-              <li>✓ Tích hợp Rơ-le bật/tắt đèn tự động</li>
-              <li>✓ Bán lẻ POS (Nước, Căng vợt, Cầu)</li>
-              <li>✓ Hỗ trợ kỹ thuật ưu tiên 24/7</li>
-            </ul>
-          </div>
-          <a href="#dang-ky" class="btn btn-primary w-full">Dùng thử 14 ngày miễn phí</a>
-        </div>
+        <a href="#dang-ky" class="mt-6 block rounded-lg bg-blue-600 py-2 text-center text-sm font-semibold text-white hover:bg-blue-700">Dùng thử 14 ngày</a>
       </div>
-    </section>
 
+      <!-- Thẻ 3 -->
+      <div class="rounded-xl border bg-white p-6 shadow-sm flex flex-col justify-between">
+        <div>
+          <h3 class="text-xl font-bold">Gói Chuỗi Sân</h3>
+          <p class="mt-4 text-3xl font-extrabold">899.000đ <span class="text-xs text-gray-500 font-normal">/tháng</span></p>
+          <ul class="mt-4 space-y-2 text-sm text-gray-600">
+            <li>✓ Chuỗi nhiều chi nhánh</li>
+            <li>✓ Xuất hóa đơn VAT</li>
+            <li>✓ Hỗ trợ ưu tiên 24/7</li>
+          </ul>
+        </div>
+        <a href="#dang-ky" class="mt-6 block rounded-lg border py-2 text-center text-sm font-semibold hover:bg-gray-50">Liên hệ</a>
+      </div>
+
+    </div>
+  </div>
+</section>
     <!-- SECTION 8: CÂU HỎI THƯỜNG GẶP -->
     <section id="faq" class="section border-t border-line" aria-labelledby="faq-title">
       <div class="text-center max-w-2xl mx-auto mb-12">
