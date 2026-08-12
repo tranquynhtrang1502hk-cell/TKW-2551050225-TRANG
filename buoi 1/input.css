@@ -1,0 +1,33 @@
+@import "tailwindcss";
+
+/* Khai báo biến dark mode cho Buổi 3 */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Khai báo Design Token cho dự án SânViệt */
+@theme {
+  --color-brand-600: #10b981; /* Xanh lá Emerald thể thao */
+  --color-accent-500: #f59e0b; /* Cam điểm nhấn */
+  --color-ink: #0f172a;       /* Đen Slate-900 */
+  --color-muted: #64748b;     /* Xám Slate-500 */
+  --color-surface: #ffffff;   /* Trắng */
+  --color-line: #e2e8f0;      /* Viền nhạt Slate-200 */
+
+  --font-display: "Plus Jakarta Sans", system-ui, sans-serif;
+  --font-body: "Inter", system-ui, sans-serif;
+
+  --radius-card: 0.875rem;
+}
+
+/* Container dùng chung cho các Section */
+.section {
+  @apply mx-auto w-full max-w-6xl px-5 py-20 lg:py-28;
+}
+
+/* Button Component tái sử dụng */
+.btn {
+  @apply inline-flex items-center justify-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold transition-colors;
+}
+
+.btn-primary {
+  @apply bg-brand-600 text-white hover:bg-emerald-600 shadow-lg shadow-emerald-500/20;
+}
