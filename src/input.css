@@ -27,3 +27,4 @@
 .btn-primary {
   @apply bg-brand-600 text-white hover:bg-emerald-600 shadow-lg shadow-emerald-500/20;
 }
+/* Cap nhat token va style buoi 1 */
