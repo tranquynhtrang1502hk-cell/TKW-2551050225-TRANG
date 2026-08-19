@@ -53,3 +53,9 @@
   * `--color-line`: Màu đường kẻ viền/phân cách[cite: 1].
 * **Tối ưu trải nghiệm (UX):** Sử dụng dải màu Slate/Navy tối (`#0f172a`, `#1e293b`) thay cho màu đen tuyền `#000000` để tránh gây mỏi mắt cho người dùng[cite: 1].
 * **Tích hợp Tailwind:** Cấu hình `darkMode: 'class'` và kết nối các màu utility (`bg-surface`, `text-ink`, `border-line`) với `var(--color-...)`[cite: 1].
+
+
+### 🧩 Nhiệm vụ 4: Component Hóa CSS & Trang Pricing
+
+* **Trích xuất Component (`@layer components`):** Tạo các class tái sử dụng như `.section`, `.btn`, `.btn-primary`, `.card`, `.field-label`, `.field-input`, `.field-error` giúp HTML gọn gàng hơn.
+* **Trang Bảng giá (`pricing.html`):** Thiết kế bảng so sánh trực quan, có khối `overflow-x-auto min-w-[720px]` hỗ trợ vuốt ngang trên thiết bị di động kèm dòng nhắc nhở cho người dùng mobile[cite: 1].

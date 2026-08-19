@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bảng giá & So sánh dịch vụ - SânViệt</title>
+  <link rel="stylesheet" href="./dist/output.css">
+</head>
+<body class="bg-surface text-ink font-body antialiased">
+
+  <!-- HEADER DÙNG CHUNG -->
+  <header class="sticky top-0 z-50 border-b border-line bg-surface/90 backdrop-blur-md">
+    <nav class="section !py-4 flex items-center justify-between" aria-label="Điều hướng chính">
+      <a href="index.html" class="font-display text-2xl font-extrabold tracking-tight text-brand-600">
+        SânViệt<span class="text-accent-500">.</span>
+      </a>
+      <ul class="hidden items-center gap-8 font-medium md:flex">
+        <li><a href="index.html#tinh-nang" class="hover:text-brand-600 transition-colors">Tính năng</a></li>
+        <li><a href="pricing.html" class="text-brand-600 font-bold">Bảng giá</a></li>
+        <li><a href="contact.html" class="hover:text-brand-600 transition-colors">Liên hệ</a></li>
+      </ul>
+      <a href="contact.html" class="btn btn-primary">Dùng thử miễn phí</a>
+    </nav>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main class="section">
+    <div class="text-center max-w-2xl mx-auto mb-10">
+      <h1 class="font-display text-3xl font-extrabold sm:text-4xl">Bảng giá & So sánh tính năng</h1>
+      <p class="text-muted mt-3">Chọn gói giải pháp phù hợp nhất để tự động hóa cụm sân cầu lông của bạn.</p>
+    </div>
+
+    <!-- DÒNG THÔNG BÁO CHO MOBILE (Nhiệm vụ 2 & 4) -->
+    <p class="mt-2 text-sm text-muted lg:hidden text-right italic">
+      👈 Vuốt ngang để xem hết bảng
+    </p>
+
+    <!-- BẢNG SO SÁNH CUỘN NGANG MỚI -->
+    <div class="mt-4 overflow-x-auto rounded-xl border border-line">
+      <table class="w-full min-w-[720px] text-left border-collapse text-sm">
+        <thead>
+          <tr class="border-b border-line bg-surface-alt">
+            <th class="p-4 font-bold">Tính năng</th>
+            <th class="p-4 font-bold text-center">Cụm Nhỏ</th>
+            <th class="p-4 font-bold text-center text-brand-600">Chuyên Nghiệp</th>
+            <th class="p-4 font-bold text-center">Chuỗi Sân</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-line">
+          <tr>
+            <td class="p-4 font-medium">Số lượng sân hỗ trợ</td>
+            <td class="p-4 text-center">Dưới 5 sân</td>
+            <td class="p-4 text-center font-bold text-brand-600">Không giới hạn</td>
+            <td class="p-4 text-center">Không giới hạn</td>
+          </tr>
+          <tr>
+            <td class="p-4 font-medium">Đặt sân qua Zalo 24/7</td>
+            <td class="p-4 text-center">✅</td>
+            <td class="p-4 text-center">✅</td>
+            <td class="p-4 text-center">✅</td>
+          </tr>
+          <tr>
+            <td class="p-4 font-medium">Bật/tắt đèn Rơ-le tự động</td>
+            <td class="p-4 text-center">❌</td>
+            <td class="p-4 text-center">✅</td>
+            <td class="p-4 text-center">✅</td>
+          </tr>
+          <tr>
+            <td class="p-4 font-medium">Bán hàng POS tại quầy</td>
+            <td class="p-4 text-center">❌</td>
+            <td class="p-4 text-center">✅</td>
+            <td class="p-4 text-center">✅</td>
+          </tr>
+          <tr>
+            <td class="p-4 font-medium">Quản lý nhiều chi nhánh</td>
+            <td class="p-4 text-center">❌</td>
+            <td class="p-4 text-center">❌</td>
+            <td class="p-4 text-center">✅</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+</body>
+</html>
