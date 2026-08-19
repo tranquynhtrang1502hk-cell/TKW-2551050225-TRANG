@@ -27,5 +27,18 @@
 | **5** | **FAQ Section** | Lưới 2 cột tỉ lệ không đều | `grid` | `grid gap-12 lg:grid-cols-[1fr_1.4fr]` |
 | **6** | **Footer Links** | Lưới 4 cột thẳng hàng dọc & ngang | `grid` | `grid gap-10 sm:grid-cols-2 lg:grid-cols-4` | .
 
+### BUỔI 3
+## NHiệm vụ 1 : 
+1. Phương pháp luận Mobile-First & Quy trình Test
+* **Đọc class Tailwind:** Các prefix breakpoint (`sm:`, `md:`, `lg:`) hoạt động theo cơ chế `min-width` ("từ kích thước này trở lên")[cite: 1]. 
+  * Ví dụ: `<h1 class="text-4xl sm:text-5xl lg:text-6xl">` được hiểu là: Mặc định (Mobile < 640px) xài `text-4xl`; từ `sm` (≥ 640px) xài `text-5xl`; từ `lg` (≥ 1024px) xài `text-6xl`[cite: 1].
+* **Quy trình kiểm tra (DevTools):** Kiểm tra liên tục qua 4 mốc màn hình chuẩn: **360px ➔ 768px ➔ 1024px ➔ 1440px**[cite: 1].
+2. Danh sách 4 vị trí vỡ/chưa tối ưu Layout trên Mobile (360px)
 
+| STT | Vị trí (Section) | Hiện trạng vỡ / Chưa tối ưu ở 360px | Hướng xử lý chuẩn Mobile-First |
+| :---: | :--- | :--- | :--- |
+| **1** | **Hero Section** | Nút bấm CTA xếp hàng ngang dễ gây tràn viền hoặc vỡ chữ trên màn 360px[cite: 1]. | Chuyển sang xếp dọc mặc định, nâng lên hàng ngang ở màn lớn hơn: `flex-col sm:flex-row`[cite: 1]. |
+| **2** | **Lưới tính năng** | Chưa khai báo cột mặc định rõ ràng cho màn hình di động[cite: 1]. | Đặt mặc định 1 cột cho mobile, nâng dần theo màn hình: `grid-cols-1 sm:grid-cols-2 lg:grid-cols-3`[cite: 1]. |
+| **3** | **Bảng so sánh** | Ép bảng nhiều cột hiển thị trên màn 360px làm chữ bị co cụm, vỡ dòng mất thẩm mỹ[cite: 1]. | Bọc khung cuộn ngang `overflow-x-auto min-w-[720px]` kèm dòng thông báo: *" Vuốt ngang để xem hết bảng"*[cite: 1]. |
+| **4** | **Header / Menu** | Danh sách điều hướng chính hiển thị dạng hàng ngang tràn màn hình di động[cite: 1]. | Ẩn danh sách menu ở màn hình nhỏ: `hidden md:flex`, nhường chỗ cho nút Hamburger[cite: 1]. |
 
