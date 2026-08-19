@@ -42,3 +42,14 @@
 | **3** | **Bảng so sánh** | Ép bảng nhiều cột hiển thị trên màn 360px làm chữ bị co cụm, vỡ dòng mất thẩm mỹ[cite: 1]. | Bọc khung cuộn ngang `overflow-x-auto min-w-[720px]` kèm dòng thông báo: *" Vuốt ngang để xem hết bảng"*[cite: 1]. |
 | **4** | **Header / Menu** | Danh sách điều hướng chính hiển thị dạng hàng ngang tràn màn hình di động[cite: 1]. | Ẩn danh sách menu ở màn hình nhỏ: `hidden md:flex`, nhường chỗ cho nút Hamburger[cite: 1]. |
 
+### 🌙 Nhiệm vụ 3: Thiết Lập Dark Mode Bằng Hệ Thống Token Màu (CSS Variables)
+
+* **Thiết lập Token CSS:** Khai báo danh sách biến CSS màu sắc trong `@layer base` cho cả 2 trạng thái `:root` (Light) và `.dark` (Dark)[cite: 1].
+* **Bảng màu Token chuẩn hóa:**
+  * `--color-ink`: Màu văn bản chính[cite: 1].
+  * `--color-muted`: Màu văn bản phụ/ghi chú[cite: 1].
+  * `--color-surface`: Màu nền trang chính[cite: 1].
+  * `--color-surface-alt`: Màu nền của Section/Card phụ[cite: 1].
+  * `--color-line`: Màu đường kẻ viền/phân cách[cite: 1].
+* **Tối ưu trải nghiệm (UX):** Sử dụng dải màu Slate/Navy tối (`#0f172a`, `#1e293b`) thay cho màu đen tuyền `#000000` để tránh gây mỏi mắt cho người dùng[cite: 1].
+* **Tích hợp Tailwind:** Cấu hình `darkMode: 'class'` và kết nối các màu utility (`bg-surface`, `text-ink`, `border-line`) với `var(--color-...)`[cite: 1].
