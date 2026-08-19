@@ -1,30 +1,28 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@layer base {
+  /* 1. Chế độ Sáng (Light Mode - Mặc định) */
+  :root {
+    --color-ink: #0f172a;          /* Màu chữ chính (Xanh đen đậm) */
+    --color-muted: #64748b;        /* Màu chữ phụ/mô tả */
+    --color-surface: #ffffff;      /* Nền trang chính */
+    --color-surface-alt: #f8fafc;  /* Nền phụ (Section, Card phụ) */
+    --color-line: #e2e8f0;         /* Màu đường viền/đường kẻ */
+  }
 
-@custom-variant dark (&:where(.dark, .dark *));
+  /* 2. Chế độ Tối (Dark Mode) - Không dùng #000/#fff lóa mắt */
+  .dark {
+    --color-ink: #e2e8f0;          /* Màu chữ chuyển sang sáng */
+    --color-muted: #94a3b8;        /* Màu chữ phụ xám nhạt */
+    --color-surface: #0f172a;      /* Nền trang chuyển sang xanh đen tối */
+    --color-surface-alt: #1e293b;  /* Nền phụ xanh đen nhạt hơn chút */
+    --color-line: #334155;         /* Viền xám tối */
+  }
 
-@theme {
-  --color-brand-600: #10b981;
-  --color-accent-500: #f59e0b;
-  --color-ink: #0f172a;
-  --color-muted: #64748b;
-  --color-surface: #ffffff;
-  --color-line: #e2e8f0;
-
-  --font-display: "Plus Jakarta Sans", system-ui, sans-serif;
-  --font-body: "Inter", system-ui, sans-serif;
-
-  --radius-card: 0.875rem;
+  /* Gán màu mặc định cho thẻ body */
+  body {
+    background-color: var(--color-surface);
+    color: var(--color-ink);
+  }
 }
-
-.section {
-  @apply mx-auto w-full max-w-6xl px-5 py-20 lg:py-28;
-}
-
-.btn {
-  @apply inline-flex items-center justify-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold transition-colors;
-}
-
-.btn-primary {
-  @apply bg-brand-600 text-white hover:bg-emerald-600 shadow-lg shadow-emerald-500/20;
-}
-/* Cap nhat token va style buoi 1 */
