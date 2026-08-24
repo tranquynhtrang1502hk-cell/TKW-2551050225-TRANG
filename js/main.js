@@ -12,6 +12,7 @@ import { initReveal } from "./reveal.js";
 import { initExtra } from "./extra.js";
 import { initRecords } from "./records.js";
 import { initValidation } from "./validation.js";
+import { initTransaction } from "./transaction.js";
 
 // Khởi chạy các widget tương tác
 initNav();
@@ -25,3 +26,4 @@ initReveal();
 initExtra();
 initRecords();
 initValidation();
+initTransaction();
