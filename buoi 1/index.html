@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SânViệt - Phần mềm Quản lý & Đặt sân Cầu lông Tự động</title>
+  <link rel="stylesheet" href="./dist/output.css">
+</head>
+<body class="bg-surface text-ink font-body">
+
+  <!-- Thẻ hỗ trợ Accessibility giúp nhảy nhanh đến nội dung chính -->
+  <a href="#main" class="sr-only focus:not-sr-only">Bỏ qua đến nội dung chính</a>
+
+  <!-- SECTION 1: HEADER / NAVBAR (Đã thêm style Tailwind ở Nhiệm vụ 4) -->
+  <header class="sticky top-0 z-50 border-b border-line bg-surface/90 backdrop-blur">
+    <nav class="section !py-4 flex items-center justify-between" aria-label="Điều hướng chính">
+      <a href="#" class="font-display text-2xl font-extrabold text-brand-600">SânViệt</a>
+      
+      <ul class="hidden items-center gap-8 font-medium md:flex">
+        <li><a href="#tinh-nang" class="hover:text-brand-600 transition-colors">Tính năng</a></li>
+        <li><a href="#bang-gia" class="hover:text-brand-600 transition-colors">Bảng giá</a></li>
+        <li><a href="#faq" class="hover:text-brand-600 transition-colors">Hỏi đáp</a></li>
+      </ul>
+
+      <div class="flex items-center gap-4">
+        <a href="#dang-nhap" class="text-sm font-semibold hover:text-brand-600">Đăng nhập</a>
+        <a href="#dung-thu" class="btn btn-primary">Dùng thử miễn phí</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- NỘI DUNG CHÍNH (MAIN LANDMARK) -->
+  <main id="main">
+
+    <!-- SECTION 2: HERO SECTION (Đã thêm style Tailwind ở Nhiệm vụ 4) -->
+    <section class="section grid items-center gap-14 lg:grid-cols-2 lg:gap-16" aria-labelledby="hero-title">
+      <div>
+        <h1 id="hero-title" class="font-display text-brand-600 text-4xl font-extrabold leading-tight sm:text-5xl lg:text-6xl">
+          Quản lý & Đặt sân Cầu lông tự động 24/7
+        </h1>
+        <p class="text-muted mt-6 text-lg">
+          Giải pháp chuyển đổi số toàn diện cho cụm sân cầu lông. Khách hàng tự tìm và đặt sân qua Zalo/QR, tự động bật/tắt đèn chiếu sáng và lấp đầy 100% giờ trống.
+        </p>
+        <div class="mt-8 flex flex-col gap-4 sm:flex-row">
+          <a href="#dung-thu" class="btn btn-primary px-6 py-3 text-base">Dùng thử 14 ngày miễn phí</a>
+          <a href="#demo" class="btn border border-line px-6 py-3 text-base hover:bg-gray-50">Xem Demo SânViệt</a>
+        </div>
+      </div>
+      
+      <div class="flex justify-center">
+        <img src="./assets/img/hero-dashboard.png" alt="Màn hình sơ đồ đặt sân cầu lông SânViệt" class="rounded-card border-line w-full max-w-lg border shadow-2xl">
+      </div>
+    </section>
+
+    <!-- SECTION 3: LOGO KHÁCH HÀNG / ĐỐI TÁC (Khung HTML) -->
+    <section aria-label="Đối tác tin tưởng">
+      <h2>Hơn 200+ cụm sân cầu lông toàn quốc đang vận hành cùng SânViệt</h2>
+    </section>
+
+    <!-- SECTION 4: TÍNH NĂNG CHÍNH (Khung HTML) -->
+    <section id="tinh-nang" aria-labelledby="tinh-nang-title">
+      <h2 id="tinh-nang-title">Tính năng vượt trội dành riêng cho chủ sân cầu lông</h2>
+      <ul>
+        <li>
+          <h3>Khách đặt sân tự động qua Zalo</h3>
+          <p>Xem sơ đồ sân trống theo thời gian thực, giữ chỗ và thanh toán chuyển khoản QR tự động.</p>
+        </li>
+        <li>
+          <h3>Kết nối rơ-le bật/tắt đèn sân</h3>
+          <p>Tự động bật đèn khi tới giờ khách đặt và tắt ngay khi hết giờ, tránh thất thoát điện.</p>
+        </li>
+        <li>
+          <h3>Bán lẻ nước uống & Quấn cán vợt</h3>
+          <p>Tích hợp bán hàng POS ngay tại quầy lễ tân, kiểm soát chính xác tồn kho nước ngọt, cầu lông.</p>
+        </li>
+      </ul>
+    </section>
+
+    <!-- SECTION 5: SỐ LIỆU ẤN TƯỢNG (Khung HTML) -->
+    <section aria-labelledby="so-lieu-title">
+      <h2 id="so-lieu-title">Kết quả ấn tượng SânViệt mang lại</h2>
+      <ul>
+        <li><span>100.000+</span> Lượt đặt sân thành công mỗi tháng</li>
+        <li><span>0%</span> Tình trạng bị trùng lịch đặt sân</li>
+        <li><span>30%</span> Tăng trưởng doanh thu giờ thấp điểm</li>
+      </ul>
+    </section>
+
+    <!-- SECTION 6: CẢM NHẬN KHÁCH HÀNG (Khung HTML) -->
+    <section aria-labelledby="danh-gia-title">
+      <h2 id="danh-gia-title">Chủ sân nói gì về chúng tôi</h2>
+      <figure>
+        <blockquote>
+          <p>"Từ khi cài SânViệt, tôi không cần ngồi trực điện thoại nghe đặt sân nữa. Khách tự lên Zalo chọn giờ và thanh toán luôn, nhẹ cả người!"</p>
+        </blockquote>
+        <figcaption>- Anh Hoàng, Chủ Cụm sân Cầu lông Victor Quận 7</figcaption>
+      </figure>
+    </section>
+
+    <!-- SECTION 7: BẢNG GIÁ (Khung HTML) -->
+    <section id="bang-gia" aria-labelledby="bang-gia-title">
+      <h2 id="bang-gia-title">Bảng giá phù hợp mọi quy mô cụm sân</h2>
+      <ul>
+        <li>
+          <h3>Gói Cụm Nhỏ (Dưới 5 sân)</h3>
+          <p>199,000đ / tháng</p>
+        </li>
+        <li>
+          <h3>Gói Chuyên Nghiệp (Từ 5 - 20 sân)</h3>
+          <p>499,000đ / tháng</p>
+        </li>
+      </ul>
+    </section>
+
+    <!-- SECTION 8: CÂU HỎI THƯỜNG GẶP (Khung HTML) -->
+    <section id="faq" aria-labelledby="faq-title">
+      <h2 id="faq-title">Các câu hỏi thường gặp</h2>
+      <details>
+        <summary>Tôi có được trải nghiệm dùng thử không?</summary>
+        <p>Bạn có 14 ngày dùng thử miễn phí full tính năng mà không cần cam kết.</p>
+      </details>
+      <details>
+        <summary>Hệ thống có dễ dùng cho nhân viên lễ tân không?</summary>
+        <p>Giao diện SânViệt dạng sơ đồ trực quan, nhân viên chỉ mất 5 phút là có thể sử dụng thành thạo.</p>
+      </details>
+    </section>
+
+    <!-- SECTION 9: CALL TO ACTION (Khung HTML) -->
+    <section aria-labelledby="cta-title">
+      <h2 id="cta-title">Bắt đầu tự động hóa cụm sân cầu lông của bạn ngay hôm nay</h2>
+      <a href="#dang-ky">Đăng ký tư vấn miễn phí</a>
+    </section>
+
+  </main>
+
+  <!-- SECTION 10: FOOTER (Khung HTML) -->
+  <footer>
+    <p>&copy; 2026 SânViệt SaaS. Giải pháp công cụ quản lý thể thao chuyên nghiệp.</p>
+  </footer>
+
+</body>
+</html>
