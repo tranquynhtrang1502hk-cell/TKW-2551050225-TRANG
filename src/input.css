@@ -40,6 +40,12 @@
     color: var(--color-ink);
     font-family: 'Inter', system-ui, sans-serif;
   }
+
+  /* Chuẩn điều hướng bàn phím Lighthouse Accessibility (Tiết 4) */
+  :focus-visible {
+    outline: 2px solid var(--color-brand-600) !important;
+    outline-offset: 2px !important;
+  }
 }
 
 @layer components {
@@ -71,8 +77,13 @@
     @apply block w-full rounded-xl border border-line bg-surface px-4 py-2.5 text-sm text-ink placeholder:text-muted focus:border-brand-600 focus:outline-none focus:ring-2 focus:ring-brand-600/20 transition-colors;
   }
 
+  /* Bắt trạng thái aria-invalid trực tiếp từ CSS (Tiết 3) */
+  .field-input[aria-invalid="true"] {
+    @apply border-rose-500 text-rose-900 focus:border-rose-500 focus:ring-rose-500/20 dark:text-rose-100 dark:border-rose-500;
+  }
+
   .field-error {
-    @apply mt-1 text-xs text-rose-500 font-medium;
+    @apply mt-1 text-xs text-rose-500 font-semibold empty:hidden;
   }
 
   /* Nút lên đầu trang */

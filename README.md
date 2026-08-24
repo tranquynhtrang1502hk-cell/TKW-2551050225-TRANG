@@ -79,17 +79,52 @@
 * `js/reveal.js`: Xử lý Scroll Reveal và `prefers-reduced-motion`.
 * `js/extra.js`: Xử lý bài tập về nhà tương tác mở rộng.
 
-### 🎁 Bài Tập Về Nhà (Tương Tác Tự Chọn):
-* **Tính năng 1 - Sao chép mã ưu đãi nhanh (`data-copy-coupon`):** Giúp người dùng bấm 1 chạm để sao chép mã khuyến mãi `SANVIET2026` vào Clipboard mà không cần bôi đen thủ công, có phản hồi trực quan "Đã chép mã" giúp tăng tỷ lệ chuyển đổi đăng ký.
-* **Tính năng 2 - Modal xem Demo trực tiếp (`demo-modal`):** Giúp khách hàng xem nhanh cách hệ thống đặt sân & bật tắt đèn hoạt động ngay trên trang chủ mà không phải chuyển trang, có bẫy tiêu điểm bàn phím và đóng bằng phím ESC.
-* **Tính năng 3 - Hiệu ứng đếm số tăng dần (`data-countup`):** Giúp phần số liệu thống kê (100.000+ lượt đặt, 35% tăng trưởng) trở nên sinh động và tạo độ tin cậy trực quan cao hơn khi người dùng cuộn đến.
+---
 
-### 🎓 Trả Lời Câu Hỏi Vấn Đáp Buổi 4:
-1. **Event delegation là gì và vì sao cần thiết ở accordion?**
-   * *Trả lời:* Event delegation là kỹ thuật tận dụng cơ chế nổi bọt sự kiện (Event Bubbling) để gắn duy nhất 1 Event Listener tại phần tử cha (`#faq`) thay vì gắn vào từng nút con. Kỹ thuật này giúp tiết kiệm bộ nhớ, giảm độ phức tạp khi quản lý sự kiện và xử lý tốt ngay cả khi các phần tử bên trong thay đổi động hoặc khi bấm trúng icon SVG bên trong nút nhờ `e.target.closest()`.
-2. **Vì sao script dark mode phải nằm inline trong `<head>` mà không nằm trong `main.js`?**
-   * *Trả lời:* File `main.js` được nạp dạng `type="module"` đặt cuối `<body>` nên thực thi sau khi trình duyệt đã phân tích và vẽ xong DOM ban đầu. Nếu đặt dark mode trong `main.js`, trình duyệt sẽ vẽ trang màu sáng trước rồi mới đổi sang tối, gây ra hiện tượng nháy trắng (FOUC - Flash of Unstyled Content). Đặt một đoạn script inline đồng bộ nhỏ trong `<head>` giúp kiểm tra `localStorage` / `prefers-color-scheme` và gắn class `dark` vào thẻ `<html>` ngay trước khi trình duyệt render giao diện.
-3. **IntersectionObserver hơn sự kiện `scroll` ở điểm nào?**
-   * *Trả lời:* Sự kiện `scroll` kích hoạt liên tục hàng trăm lần mỗi giây khi người dùng cuộn trang, chạy trên main thread gây hiện tượng giật lag (jank). Ngược lại, `IntersectionObserver` được trình duyệt tối ưu hóa ở mức native, chạy bất đồng bộ và chỉ phát tín hiệu khi phần tử mốc thực sự giao cắt (vào hoặc ra khỏi khung nhìn), giúp tiết kiệm tài nguyên CPU và tăng tốc độ khung hình (60fps mượt mà).
-4. **Nếu bỏ `inert` khỏi slider thì người dùng bàn phím gặp vấn đề gì?**
-   * *Trả lời:* Nếu không có `inert`, các liên kết hoặc nút bấm nằm trong các slide đang ẩn (vô hình ngoài màn hình) vẫn nhận được tiêu điểm khi người dùng nhấn phím `Tab`. Khi đó, khung viền focus sẽ biến mất vào vùng vô hình, khiến người dùng bàn phím và người khiếm thị sử dụng Screen Reader bị mất phương hướng, không biết tiêu điểm đang ở đâu.
+### BUỔI 5
+## Dữ Liệu, Kiểm Tra Dữ Liệu, Hoàn Thiện & Phát Hành
+
+### 📋 Checklist Hoàn Thành Buổi 5:
+- [x] **Trang thứ tư (`records.html`):** Đọc và hiển thị dữ liệu động từ `data/records.json` (30 bản ghi mẫu) thông qua `fetch + async/await`.
+- [x] **Đủ 4 trạng thái giao diện:**
+  1. `loading`: Hiển thị khung xương skeleton khi đang nạp dữ liệu.
+  2. `có dữ liệu`: Hiển thị danh sách bảng kèm số liệu thống kê sản lượng và doanh thu.
+  3. `rỗng`: Hiển thị thông báo thân thiện khi không tìm thấy kết quả khớp bộ lọc.
+  4. `lỗi`: Bắt lỗi `!res.ok` và hiển thị thông báo lỗi kèm nút "Thử tải lại".
+- [x] **Mô hình State ➔ Render ➔ DOM:** Thao tác người dùng chỉ sửa `state` rồi gọi `render()` duy nhất 1 lần, không sửa DOM lắt nhắt.
+- [x] **Tìm kiếm, Lọc và Sắp xếp kết hợp:** Lọc đa điều kiện (`category` + `status` + `query` + `sort`) đồng thời bằng hàm thuần `visibleRecords()`.
+- [x] **Debounce cho ô tìm kiếm:** Tối ưu hóa 300ms giảm tải vẽ lại liên tục khi người dùng gõ phím.
+- [x] **Thêm / Xóa bản ghi & localStorage:** Tự động đồng bộ vào `localStorage`, dữ liệu giữ nguyên khi F5 / refresh trang, có nút "Khôi phục dữ liệu mẫu".
+- [x] **Dựng dòng an toàn chống XSS:** Sử dụng `<template id="row-template">` kết hợp `textContent`, thay thế DOM 1 lần bằng `tbody.replaceChildren()`.
+- [x] **Kiểm tra dữ liệu Form (`contact.html`):** Sử dụng Constraint Validation API (`novalidate`), thông báo lỗi Tiếng Việt rõ ràng kèm hướng dẫn sửa, gắn `aria-invalid="true"`, tự động đưa tiêu điểm về ô sai đầu tiên (`firstInvalid.focus()`), hiển thị Toast thông báo khi gửi thành công.
+- [x] **Rà soát chất lượng & Accessibility:** Đảm bảo điều hướng bàn phím `:focus-visible`, độ tương phản màu chuẩn >= 4.5:1, ảnh có `width/height` và `loading="lazy"`, Console sạch không có lỗi 404.
+
+### 🌟 3 Điều Tôi Sẽ Làm Lại Nếu Có Thêm Thời Gian:
+1. **Xây dựng Backend RESTful API & Database Thực Tế:** Hiện tại dữ liệu đang lưu cục bộ ở `localStorage` của trình duyệt client. Nếu có thêm thời gian, tôi sẽ xây dựng Backend API với Node.js/Express và cơ sở dữ liệu PostgreSQL/MongoDB để hỗ trợ xác thực tài khoản (Authentication/JWT), phân quyền quản lý và đồng bộ dữ liệu đa thiết bị theo thời gian thực.
+2. **Bổ Sung Tính Năng Phân Trang (Pagination) & Bộ Lọc Nâng Cao:** Khi số lượng đơn hàng tăng từ 30 lên hàng nghìn bản ghi, tôi sẽ bổ sung phân trang (10/20/50 dòng mỗi trang) và bộ lọc theo khoảng ngày (Date Range Picker), lọc theo khoảng giá để tối ưu hóa hiệu năng render DOM và trải nghiệm tra cứu của người dùng.
+3. **Tích Hợp Biểu Đồ Trực Quan Hóa Doanh Thu (Dashboard Charts):** Xây dựng biểu đồ cột/đường (bằng Chart.js hoặc SVG thuần) hiển thị xu hướng tăng trưởng sản lượng và doanh thu theo tuần/tháng, giúp chủ cụm sân và thương lái có cái nhìn trực quan, nhanh chóng đưa ra quyết định kinh doanh.
+
+### 🎓 Trả Lời 5 Câu Hỏi Vấn Đáp Cuối Kỳ:
+1. **Vẽ lại mô hình `state ➔ render ➔ DOM` và giải thích vì sao nó cần thiết?**
+   * *Mô hình:*
+     ```text
+     state ───► render() ───► DOM
+       ▲                        │
+       └──── sự kiện người dùng ┘
+     ```
+   * *Giải thích:* Mô hình này tạo ra **Single Source of Truth (Nguồn chân lý duy nhất)** cho toàn bộ ứng dụng. Mọi tương tác của người dùng (gõ tìm kiếm, chọn lọc danh mục, bấm sắp xếp, thêm/xóa) chỉ thay đổi duy nhất đối tượng `state`, sau đó hàm `render()` sẽ dựa vào `state` hiện tại để tính toán và cập nhật lại DOM một lần. Nhờ vậy, code không bị phân tán, các bộ lọc không bao giờ triệt tiêu lẫn nhau và rất dễ kiểm thử, bảo trì.
+
+2. **Vì sao không được nối chuỗi dữ liệu người dùng vào `innerHTML`?**
+   * *Trả lời:* Dữ liệu do người dùng nhập có thể chứa mã HTML hoặc mã JavaScript độc hại (ví dụ: `<img src=x onerror="alert(document.cookie)">`). Nếu nối chuỗi trực tiếp vào `innerHTML`, trình duyệt sẽ thông dịch chuỗi đó thành mã thực thi, dẫn đến lỗ hổng bảo mật nghiêm trọng là **XSS (Cross-Site Scripting)**. Sử dụng `<template>` kết hợp `textContent` coi mọi dữ liệu đầu vào là văn bản thuần (plain text) an toàn 100%.
+
+3. **`debounce` giải quyết vấn đề gì? Nếu bỏ đi thì hỏng ở đâu?**
+   * *Trả lời:* `debounce` trì hoãn việc thực thi hàm cho đến khi người dùng ngừng thao tác trong một khoảng thời gian nhất định (ví dụ 300ms). Khi người dùng gõ từ khóa "Nguyễn", sự kiện `input` bắn ra liên tục 6 lần. Nếu không có `debounce`, hàm lọc và vẽ lại DOM sẽ phải chạy 6 lần liên tiếp. Với tập dữ liệu lớn hàng nghìn dòng, việc này gây nghẽn luồng xử lý chính (Main Thread), làm giao diện bị khựng, đơ giật và giảm thời lượng pin của thiết bị.
+
+4. **`novalidate` tắt cái gì và không tắt cái gì?**
+   * *Trả lời:* Thuộc tính `novalidate` trên thẻ `<form>` **chỉ tắt bong bóng thông báo lỗi mặc định bằng tiếng Anh** của trình duyệt (vốn không thể tùy biến giao diện CSS). Nó **không hề tắt** cơ chế kiểm tra hợp lệ của HTML5; các phương thức và thuộc tính như `form.checkValidity()`, `field.validity` (`valueMissing`, `typeMismatch`, `patternMismatch`, v.v.) vẫn hoạt động đầy đủ để chúng ta viết thông báo lỗi tiếng Việt tùy biến.
+
+5. **Ba điều bạn sẽ làm lại nếu có thêm thời gian là gì, và vì sao?**
+   * *Trả lời:* 
+     1. Xây dựng Backend API RESTful với CSDL thực để dữ liệu được bảo mật và đồng bộ máy chủ thay vì chỉ ở `localStorage`.
+     2. Bổ sung phân trang (Pagination) và lọc nâng cao theo khoảng ngày/giá tiền để sẵn sàng cho quy mô dữ liệu lớn.
+     3. Tích hợp biểu đồ thống kê trực quan (Charts Dashboard) giúp người dùng nắm bắt xu hướng doanh thu và sản lượng nhanh hơn.
