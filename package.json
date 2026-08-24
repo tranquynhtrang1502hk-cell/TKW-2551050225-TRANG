@@ -4,8 +4,8 @@
   "description": "Nền tảng SaaS quản lý và đặt sân cầu lông SânViệt",
   "type": "module",
   "scripts": {
-    "dev": "tailwindcss -i \"./buoi 1/input.css\" -o ./dist/output.css --watch",
-    "build": "tailwindcss -i \"./buoi 1/input.css\" -o ./dist/output.css --minify"
+    "dev": "tailwindcss -i ./src/input.css -o ./dist/output.css --watch",
+    "build": "tailwindcss -i ./src/input.css -o ./dist/output.css --minify"
   },
   "main": "index.js",
   "devDependencies": {

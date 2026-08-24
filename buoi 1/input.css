@@ -1,33 +1,77 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-/* Khai báo biến dark mode cho Buổi 3 */
-@custom-variant dark (&:where(.dark, .dark *));
+@layer base {
+  /* Khai báo Color Tokens / CSS Variables */
+  :root {
+    --color-brand-600: #10b981;
+    --color-accent-500: #f59e0b;
 
-/* Khai báo Design Token cho dự án SânViệt */
-@theme {
-  --color-brand-600: #10b981; /* Xanh lá Emerald thể thao */
-  --color-accent-500: #f59e0b; /* Cam điểm nhấn */
-  --color-ink: #0f172a;       /* Đen Slate-900 */
-  --color-muted: #64748b;     /* Xám Slate-500 */
-  --color-surface: #ffffff;   /* Trắng */
-  --color-line: #e2e8f0;      /* Viền nhạt Slate-200 */
+    --color-ink: #0f172a;
+    --color-ink-invert: #f8fafc;
+    --color-muted: #64748b;
 
-  --font-display: "Plus Jakarta Sans", system-ui, sans-serif;
-  --font-body: "Inter", system-ui, sans-serif;
+    --color-surface: #ffffff;
+    --color-surface-dark: #0f172a;
+    --color-surface-alt: #f8fafc;
+    --color-surface-alt-dark: #1e293b;
 
-  --radius-card: 0.875rem;
+    --color-line: #e2e8f0;
+    --color-line-invert: #334155;
+  }
+
+  .dark {
+    --color-ink: #f8fafc;
+    --color-ink-invert: #0f172a;
+    --color-muted: #94a3b8;
+
+    --color-surface: #0f172a;
+    --color-surface-dark: #0f172a;
+    --color-surface-alt: #1e293b;
+    --color-surface-alt-dark: #1e293b;
+
+    --color-line: #334155;
+    --color-line-invert: #e2e8f0;
+  }
+
+  body {
+    background-color: var(--color-surface);
+    color: var(--color-ink);
+    font-family: 'Inter', system-ui, sans-serif;
+  }
 }
 
-/* Container dùng chung cho các Section */
-.section {
-  @apply mx-auto w-full max-w-6xl px-5 py-20 lg:py-28;
-}
+@layer components {
+  /* Container dùng chung */
+  .section {
+    @apply mx-auto w-full max-w-6xl px-5 py-16 lg:py-24;
+  }
 
-/* Button Component tái sử dụng */
-.btn {
-  @apply inline-flex items-center justify-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold transition-colors;
-}
+  /* Button styles */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold transition-all duration-200;
+  }
 
-.btn-primary {
-  @apply bg-brand-600 text-white hover:bg-emerald-600 shadow-lg shadow-emerald-500/20;
+  .btn-primary {
+    @apply bg-brand-600 text-white hover:bg-emerald-600 shadow-lg shadow-emerald-500/20 active:scale-95;
+  }
+
+  /* Card styles */
+  .card {
+    @apply rounded-2xl border border-line bg-surface p-6 shadow-sm transition-all duration-200;
+  }
+
+  /* Form Field Components */
+  .field-label {
+    @apply block text-sm font-semibold text-ink mb-1.5;
+  }
+
+  .field-input {
+    @apply block w-full rounded-xl border border-line bg-surface px-4 py-2.5 text-sm text-ink placeholder:text-muted focus:border-brand-600 focus:outline-none focus:ring-2 focus:ring-brand-600/20 transition-colors;
+  }
+
+  .field-error {
+    @apply mt-1 text-xs text-rose-500 font-medium;
+  }
 }
