@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Quản lý Dữ liệu Đơn hàng & Sản lượng - SânViệt</title>
-  <meta name="description" content="Trang quản lý dữ liệu động, tìm kiếm debounce, lọc đa tiêu chí, sắp xếp và lưu trữ localStorage.">
+  <title>Quản lý Đặt Sân & Dịch Vụ Cầu Lông - SânViệt</title>
+  <meta name="description" content="Trang quản lý dữ liệu động đặt sân cầu lông SânViệt: tìm kiếm debounce, lọc đa tiêu chí, sắp xếp và lưu trữ localStorage.">
   <link rel="stylesheet" href="./dist/output.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -41,7 +41,7 @@
         <li><a href="index.html#tinh-nang" class="hover:text-brand-600 transition-colors">Tính năng</a></li>
         <li><a href="index.html#so-lieu" class="hover:text-brand-600 transition-colors">Hiệu quả</a></li>
         <li><a href="pricing.html" class="hover:text-brand-600 transition-colors">Bảng giá</a></li>
-        <li><a href="records.html" class="text-brand-600 font-bold">Dữ liệu đơn hàng</a></li>
+        <li><a href="records.html" class="text-brand-600 font-bold">Dữ liệu đặt sân</a></li>
         <li><a href="contact.html" class="hover:text-brand-600 transition-colors">Liên hệ</a></li>
       </ul>
 
@@ -84,7 +84,7 @@
         <li><a href="index.html#tinh-nang" class="block py-2 hover:text-brand-600">Tính năng</a></li>
         <li><a href="index.html#so-lieu" class="block py-2 hover:text-brand-600">Hiệu quả</a></li>
         <li><a href="pricing.html" class="block py-2 hover:text-brand-600">Bảng giá</a></li>
-        <li><a href="records.html" class="block py-2 text-brand-600">Dữ liệu đơn hàng</a></li>
+        <li><a href="records.html" class="block py-2 text-brand-600">Dữ liệu đặt sân</a></li>
         <li><a href="contact.html" class="block py-2 hover:text-brand-600">Liên hệ</a></li>
         <li class="pt-4 border-t border-line">
           <a href="contact.html" class="btn btn-primary w-full text-center">Dùng thử miễn phí 14 ngày</a>
@@ -101,25 +101,25 @@
       <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 pb-6 border-b border-line">
         <div>
           <span class="inline-flex items-center gap-2 rounded-full border border-emerald-300 bg-emerald-50 dark:bg-emerald-950/60 dark:border-emerald-800 px-3.5 py-1 text-xs font-bold text-brand-600 mb-3">
-            📊 Dữ Liệu Động JSON & localStorage
+            🏸 Dữ Liệu Đặt Sân SânViệt (JSON & localStorage)
           </span>
           <h1 class="font-display text-3xl sm:text-4xl font-extrabold text-ink">
-            Quản Lý Đơn Hàng & Sản Lượng
+            Quản Lý Lịch Đặt Sân & Doanh Thu
           </h1>
           <p class="text-muted mt-2 text-sm sm:text-base">
-            Theo dõi, lọc, tìm kiếm và quản lý 30 bản ghi dữ liệu theo mô hình State ➔ Render ➔ DOM.
+            Theo dõi, lọc, tìm kiếm và quản lý 30 đơn đặt sân theo mô hình State ➔ Render ➔ DOM.
           </p>
         </div>
 
-        <!-- THẺ THỐNG KÊ TÓM TẮT -->
+        <!-- THẢ THỐNG KÊ TÓM TẮT -->
         <div class="grid grid-cols-3 gap-3 sm:gap-4">
           <div class="card !p-4 text-center bg-surface-alt">
             <span class="text-xs font-semibold text-muted">Số đơn khớp</span>
             <div id="stat-total-count" class="text-xl sm:text-2xl font-extrabold text-brand-600 mt-1">--</div>
           </div>
           <div class="card !p-4 text-center bg-surface-alt">
-            <span class="text-xs font-semibold text-muted">Tổng sản lượng</span>
-            <div id="stat-total-weight" class="text-xl sm:text-2xl font-extrabold text-ink mt-1">-- kg</div>
+            <span class="text-xs font-semibold text-muted">Tổng giờ thuê</span>
+            <div id="stat-total-weight" class="text-xl sm:text-2xl font-extrabold text-ink mt-1">-- giờ</div>
           </div>
           <div class="card !p-4 text-center bg-surface-alt">
             <span class="text-xs font-semibold text-muted">Tổng doanh thu</span>
@@ -134,7 +134,7 @@
           
           <!-- Ô TÌM KIẾM DEBOUNCE (Nhiệm vụ 2) -->
           <div class="relative">
-            <label for="record-search" class="sr-only">Tìm kiếm đơn hàng</label>
+            <label for="record-search" class="sr-only">Tìm kiếm đơn đặt sân</label>
             <span class="absolute inset-y-0 left-0 flex items-center pl-3.5 pointer-events-none text-muted text-sm">
               🔍
             </span>
@@ -142,21 +142,21 @@
               type="search" 
               id="record-search" 
               class="field-input pl-10" 
-              placeholder="Tìm theo thương lái, mã đơn..."
+              placeholder="Tìm theo khách hàng, CLB, mã..."
               autocomplete="off"
             />
           </div>
 
-          <!-- BỘ LỌC DANH MỤC (Category Filter) -->
+          <!-- BỘ LỌC DANH MỤC (Loại sân / Dịch vụ) -->
           <div>
-            <label for="record-category" class="sr-only">Lọc theo phân loại</label>
+            <label for="record-category" class="sr-only">Lọc theo loại dịch vụ</label>
             <select id="record-category" class="field-input cursor-pointer">
-              <option value="all">Tất cả loại nông sản</option>
-              <option value="Xoài">Xoài</option>
-              <option value="Sầu riêng">Sầu riêng</option>
-              <option value="Bưởi">Bưởi</option>
-              <option value="Mít">Mít</option>
-              <option value="Thanh long">Thanh long</option>
+              <option value="all">Tất cả loại sân & dịch vụ</option>
+              <option value="Sân Đôi VIP">Sân Đôi VIP</option>
+              <option value="Sân Tiêu Chuẩn">Sân Tiêu Chuẩn</option>
+              <option value="Sân Đơn">Sân Đơn</option>
+              <option value="Gói Tháng Cố Định">Gói Tháng Cố Định</option>
+              <option value="Thuê Vợt & Cầu">Thuê Vợt & Cầu</option>
             </select>
           </div>
 
@@ -165,8 +165,8 @@
             <label for="record-status" class="sr-only">Lọc theo trạng thái</label>
             <select id="record-status" class="field-input cursor-pointer">
               <option value="all">Tất cả trạng thái</option>
-              <option value="da-chot">Đã chốt</option>
-              <option value="dang-giao">Đang giao</option>
+              <option value="da-chot">Đã cọc</option>
+              <option value="dang-giao">Đang chơi</option>
               <option value="hoan-tat">Hoàn tất</option>
               <option value="da-huy">Đã hủy</option>
             </select>
@@ -176,12 +176,12 @@
           <div>
             <label for="record-sort" class="sr-only">Sắp xếp theo</label>
             <select id="record-sort" class="field-input cursor-pointer">
-              <option value="date-desc">Ngày: Mới nhất ➔ Cũ nhất</option>
-              <option value="date-asc">Ngày: Cũ nhất ➔ Mới nhất</option>
-              <option value="amount-desc">Doanh thu: Cao ➔ Thấp</option>
-              <option value="amount-asc">Doanh thu: Thấp ➔ Cao</option>
-              <option value="weight-desc">Sản lượng: Nhiều ➔ Ít</option>
-              <option value="weight-asc">Sản lượng: Ít ➔ Nhiều</option>
+              <option value="date-desc">Ngày đặt: Mới nhất ➔ Cũ nhất</option>
+              <option value="date-asc">Ngày đặt: Cũ nhất ➔ Mới nhất</option>
+              <option value="amount-desc">Tổng tiền: Cao ➔ Thấp</option>
+              <option value="amount-asc">Tổng tiền: Thấp ➔ Cao</option>
+              <option value="weight-desc">Số giờ: Nhiều ➔ Ít</option>
+              <option value="weight-asc">Số giờ: Ít ➔ Nhiều</option>
             </select>
           </div>
 
@@ -195,13 +195,13 @@
               type="button" 
               class="btn btn-primary text-sm py-2 px-4 shadow-sm flex items-center gap-2"
             >
-              <span>➕</span> Thêm đơn hàng mới
+              <span>➕</span> Thêm đơn đặt sân mới
             </button>
             <button 
               id="record-reset-data" 
               type="button" 
               class="btn border border-line text-sm py-2 px-4 hover:bg-surface-alt text-muted hover:text-ink flex items-center gap-1.5"
-              title="Khôi phục 30 bản ghi mẫu ban đầu từ records.json"
+              title="Khôi phục 30 đơn đặt sân mẫu ban đầu từ records.json"
             >
               <span>🔄</span> Khôi phục dữ liệu mẫu
             </button>
@@ -241,9 +241,9 @@
       <!-- TRẠNG THÁI 3: DANH SÁCH RỖNG (Empty State) -->
       <div id="records-empty" class="hidden card p-12 text-center space-y-4 bg-surface-alt">
         <span class="text-4xl">🔍</span>
-        <h3 class="font-display text-xl font-bold text-ink">Không tìm thấy bản ghi nào phù hợp</h3>
+        <h3 class="font-display text-xl font-bold text-ink">Không tìm thấy đơn đặt sân nào phù hợp</h3>
         <p class="text-sm text-muted max-w-md mx-auto">
-          Không có đơn hàng nào khớp với từ khóa tìm kiếm hoặc bộ lọc hiện tại. Bạn hãy thử đổi từ khóa hoặc đặt lại bộ lọc.
+          Không có lịch đặt sân nào khớp với từ khóa tìm kiếm hoặc bộ lọc hiện tại. Bạn hãy thử đổi từ khóa hoặc đặt lại bộ lọc.
         </p>
       </div>
 
@@ -254,11 +254,11 @@
             <tr class="border-b border-line bg-surface-alt text-muted text-xs uppercase font-extrabold tracking-wider">
               <th class="p-4 w-14 text-center">STT</th>
               <th class="p-4">Mã Đơn</th>
-              <th class="p-4">Thương Lái / Khách Hàng</th>
-              <th class="p-4">Loại Nông Sản</th>
-              <th class="p-4 text-right">Sản Lượng</th>
-              <th class="p-4 text-right">Doanh Thu</th>
-              <th class="p-4 text-center">Ngày Giao Dịch</th>
+              <th class="p-4">Khách Hàng / CLB Cầu Lông</th>
+              <th class="p-4">Loại Sân / Dịch Vụ</th>
+              <th class="p-4 text-right">Thời Lượng</th>
+              <th class="p-4 text-right">Tổng Tiền</th>
+              <th class="p-4 text-center">Ngày Đặt Sân</th>
               <th class="p-4 text-center">Trạng Thái</th>
               <th class="p-4 text-center w-20">Thao Tác</th>
             </tr>
@@ -290,8 +290,8 @@
           type="button" 
           data-action="delete"
           class="p-1.5 rounded-lg text-rose-500 hover:bg-rose-50 dark:hover:bg-rose-950/40 transition-colors cursor-pointer"
-          title="Xóa đơn hàng này"
-          aria-label="Xóa đơn hàng"
+          title="Xóa đơn đặt sân này"
+          aria-label="Xóa đơn đặt sân"
         >
           🗑️
         </button>
@@ -299,12 +299,12 @@
     </tr>
   </template>
 
-  <!-- MODAL THÊM ĐƠN HÀNG MỚI (Nhiệm vụ 2) -->
+  <!-- MODAL THÊM ĐƠN ĐẶT SÂN MỚI (Nhiệm vụ 2) -->
   <div id="add-record-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/80 backdrop-blur-sm" role="dialog" aria-modal="true" aria-labelledby="add-modal-title" aria-hidden="true">
     <div class="card w-full max-w-lg bg-surface p-6 sm:p-8 shadow-2xl relative">
       <div class="flex items-center justify-between pb-4 border-b border-line">
         <h3 id="add-modal-title" class="font-display text-xl font-bold text-ink flex items-center gap-2">
-          <span>📦</span> Thêm Đơn Hàng Mới
+          <span>🏸</span> Thêm Đơn Đặt Sân Mới
         </h3>
         <button id="close-add-record-modal" type="button" class="p-2 rounded-lg text-muted hover:text-ink hover:bg-surface-alt transition-colors" aria-label="Đóng cửa sổ">
           ✕
@@ -313,27 +313,27 @@
 
       <form id="add-record-form" class="mt-4 space-y-4">
         <div>
-          <label for="new-trader" class="field-label">Tên thương lái / Khách hàng *</label>
-          <input type="text" id="new-trader" class="field-input" placeholder="VD: Vựa Chú Bảy Long An" required />
+          <label for="new-trader" class="field-label">Tên khách hàng / CLB cầu lông *</label>
+          <input type="text" id="new-trader" class="field-input" placeholder="VD: Anh Tuấn (CLB Smash Q.7)" required />
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
-            <label for="new-category" class="field-label">Loại nông sản *</label>
+            <label for="new-category" class="field-label">Loại sân / Dịch vụ *</label>
             <select id="new-category" class="field-input cursor-pointer" required>
-              <option value="Xoài">Xoài</option>
-              <option value="Sầu riêng">Sầu riêng</option>
-              <option value="Bưởi">Bưởi</option>
-              <option value="Mít">Mít</option>
-              <option value="Thanh long">Thanh long</option>
+              <option value="Sân Đôi VIP">Sân Đôi VIP</option>
+              <option value="Sân Tiêu Chuẩn">Sân Tiêu Chuẩn</option>
+              <option value="Sân Đơn">Sân Đơn</option>
+              <option value="Gói Tháng Cố Định">Gói Tháng Cố Định</option>
+              <option value="Thuê Vợt & Cầu">Thuê Vợt & Cầu</option>
             </select>
           </div>
 
           <div>
-            <label for="new-status" class="field-label">Trạng thái đơn *</label>
+            <label for="new-status" class="field-label">Trạng thái đặt sân *</label>
             <select id="new-status" class="field-input cursor-pointer" required>
-              <option value="da-chot">Đã chốt</option>
-              <option value="dang-giao">Đang giao</option>
+              <option value="da-chot">Đã cọc</option>
+              <option value="dang-giao">Đang chơi</option>
               <option value="hoan-tat">Hoàn tất</option>
               <option value="da-huy">Đã hủy</option>
             </select>
@@ -342,24 +342,24 @@
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
-            <label for="new-weight" class="field-label">Sản lượng (kg) *</label>
-            <input type="number" id="new-weight" class="field-input" placeholder="VD: 1500" min="1" required />
+            <label for="new-weight" class="field-label">Thời lượng thuê (giờ) *</label>
+            <input type="number" id="new-weight" class="field-input" placeholder="VD: 2" min="1" required />
           </div>
 
           <div>
             <label for="new-amount" class="field-label">Tổng tiền (VNĐ) *</label>
-            <input type="number" id="new-amount" class="field-input" placeholder="VD: 45000000" min="1000" step="1000" required />
+            <input type="number" id="new-amount" class="field-input" placeholder="VD: 360000" min="10000" step="10000" required />
           </div>
         </div>
 
         <div>
-          <label for="new-date" class="field-label">Ngày giao dịch *</label>
+          <label for="new-date" class="field-label">Ngày đặt sân *</label>
           <input type="date" id="new-date" class="field-input" required />
         </div>
 
         <div class="flex justify-end gap-3 pt-3 border-t border-line">
           <button id="cancel-add-record-btn" type="button" class="btn border border-line text-sm">Hủy</button>
-          <button type="submit" class="btn btn-primary text-sm">Lưu đơn hàng</button>
+          <button type="submit" class="btn btn-primary text-sm">Lưu đơn đặt sân</button>
         </div>
       </form>
     </div>
@@ -375,7 +375,7 @@
       <div class="flex gap-6">
         <a href="index.html" class="hover:text-brand-600 transition-colors">Trang chủ</a>
         <a href="pricing.html" class="hover:text-brand-600 transition-colors">Bảng giá</a>
-        <a href="records.html" class="hover:text-brand-600 transition-colors">Dữ liệu</a>
+        <a href="records.html" class="hover:text-brand-600 transition-colors">Dữ liệu đặt sân</a>
         <a href="contact.html" class="hover:text-brand-600 transition-colors">Liên hệ</a>
       </div>
     </div>

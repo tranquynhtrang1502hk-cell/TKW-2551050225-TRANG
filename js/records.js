@@ -1,5 +1,5 @@
 /**
- * js/records.js — Module quản lý dữ liệu động Buổi 5
+ * js/records.js — Module quản lý dữ liệu đơn đặt sân cầu lông SânViệt (Buổi 5)
  * - Mô hình State -> Render -> DOM
  * - 4 Trạng thái: Loading (Khung xương), Có dữ liệu, Rỗng, Lỗi
  * - Tìm kiếm Debounce, Lọc đa tiêu chí, Sắp xếp bằng bảng tra
@@ -7,7 +7,7 @@
  * - Lưu trữ localStorage và Khôi phục dữ liệu mẫu
  */
 
-const STORAGE_KEY = "sanviet_records_data_v1";
+const STORAGE_KEY = "sanviet_badminton_records_v2";
 
 // 1. State duy nhất của ứng dụng
 const state = {
@@ -42,11 +42,11 @@ const numberFormatter = new Intl.NumberFormat("vi-VN");
 // 4. Bảng tra nhãn và class trạng thái
 const statusConfig = {
   "da-chot": {
-    label: "Đã chốt",
+    label: "Đã cọc",
     class: "bg-blue-100 text-blue-700 dark:bg-blue-950/60 dark:text-blue-300",
   },
   "dang-giao": {
-    label: "Đang giao",
+    label: "Đang chơi",
     class: "bg-amber-100 text-amber-700 dark:bg-amber-950/60 dark:text-amber-300",
   },
   "hoan-tat": {
@@ -142,7 +142,7 @@ function buildRow(record, index) {
   if (idEl) idEl.textContent = record.id;
   if (traderEl) traderEl.textContent = record.trader;
   if (categoryEl) categoryEl.textContent = record.category;
-  if (weightEl) weightEl.textContent = `${numberFormatter.format(record.weight)} kg`;
+  if (weightEl) weightEl.textContent = `${numberFormatter.format(record.weight)} giờ`;
   if (amountEl) amountEl.textContent = currencyFormatter.format(record.amount);
   if (dateEl) dateEl.textContent = record.date;
 
@@ -157,11 +157,11 @@ function buildRow(record, index) {
 
   if (deleteBtn) {
     deleteBtn.addEventListener("click", () => {
-      if (confirm(`Bạn có chắc chắn muốn xóa đơn "${record.id}" của ${record.trader}?`)) {
+      if (confirm(`Bạn có chắc chắn muốn xóa đơn đặt sân "${record.id}" của ${record.trader}?`)) {
         state.records = state.records.filter((r) => r.id !== record.id);
         saveRecordsToStorage(state.records);
         render();
-        showToast(`Đã xóa đơn ${record.id} thành công!`, "info");
+        showToast(`Đã xóa đơn đặt ${record.id} thành công!`, "info");
       }
     });
   }
@@ -214,7 +214,7 @@ function render() {
   const totalAmount = list.reduce((sum, r) => sum + (Number(r.amount) || 0), 0);
 
   if (statCount) statCount.textContent = `${list.length} / ${state.records.length}`;
-  if (statWeight) statWeight.textContent = `${numberFormatter.format(totalWeight)} kg`;
+  if (statWeight) statWeight.textContent = `${numberFormatter.format(totalWeight)} giờ`;
   if (statAmount) statAmount.textContent = currencyFormatter.format(totalAmount);
 
   // Trạng thái 3: Danh sách rỗng (Empty)
@@ -297,7 +297,7 @@ export async function initRecords() {
     );
   }
 
-  // Sự kiện lọc danh mục
+  // Sự kiện lọc loại sân / dịch vụ
   if (categoryFilter) {
     categoryFilter.addEventListener("change", (e) => {
       state.category = e.target.value;
@@ -305,7 +305,7 @@ export async function initRecords() {
     });
   }
 
-  // Sự kiện lọc trạng thái
+  // Sự kiện lọc trạng thái đặt sân
   if (statusFilter) {
     statusFilter.addEventListener("change", (e) => {
       state.status = e.target.value;
@@ -324,7 +324,7 @@ export async function initRecords() {
   // Khôi phục dữ liệu mẫu
   if (resetBtn) {
     resetBtn.addEventListener("click", async () => {
-      if (confirm("Khôi phục toàn bộ dữ liệu mẫu gốc từ records.json?")) {
+      if (confirm("Khôi phục toàn bộ 30 bản ghi đặt sân mẫu gốc từ records.json?")) {
         try {
           state.loading = true;
           render();
@@ -332,7 +332,7 @@ export async function initRecords() {
           const freshData = await fetchRecordsData();
           state.records = freshData;
           state.error = null;
-          showToast("Đã khôi phục dữ liệu mẫu thành công!");
+          showToast("Đã khôi phục dữ liệu đặt sân mẫu thành công!");
         } catch (err) {
           state.error = `Lỗi khôi phục: ${err.message}`;
         } finally {
@@ -360,7 +360,7 @@ export async function initRecords() {
     });
   }
 
-  // Modal thêm bản ghi mới
+  // Modal thêm đơn đặt sân mới
   function toggleAddModal(show) {
     if (!addModal) return;
     addModal.classList.toggle("hidden", !show);
@@ -387,7 +387,7 @@ export async function initRecords() {
     });
   }
 
-  // Form thêm bản ghi mới
+  // Form thêm đơn đặt sân mới
   if (addForm) {
     addForm.addEventListener("submit", (e) => {
       e.preventDefault();
@@ -404,8 +404,8 @@ export async function initRecords() {
         return;
       }
 
-      // Tạo mã đơn ngẫu nhiên
-      const newId = `PC-${new Date().toISOString().slice(2, 7).replace("-", "")}-${Math.floor(
+      // Tạo mã đơn đặt sân ngẫu nhiên
+      const newId = `SV-${new Date().toISOString().slice(2, 7).replace("-", "")}-${Math.floor(
         100 + Math.random() * 900
       )}`;
 
@@ -423,7 +423,7 @@ export async function initRecords() {
       saveRecordsToStorage(state.records);
       toggleAddModal(false);
       render();
-      showToast(`Đã thêm thành công đơn hàng ${newId}!`);
+      showToast(`Đã thêm thành công đơn đặt sân ${newId}!`);
     });
   }
 
