@@ -10,6 +10,8 @@ import { initPricing } from "./pricing.js";
 import { initSlider } from "./slider.js";
 import { initReveal } from "./reveal.js";
 import { initExtra } from "./extra.js";
+import { initRecords } from "./records.js";
+import { initValidation } from "./validation.js";
 
 // Khởi chạy các widget tương tác
 initNav();
@@ -21,3 +23,5 @@ initPricing();
 initSlider();
 initReveal();
 initExtra();
+initRecords();
+initValidation();

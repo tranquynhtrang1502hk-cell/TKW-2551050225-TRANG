@@ -40,9 +40,9 @@
       <ul class="hidden items-center gap-8 font-medium md:flex text-ink">
         <li><a href="index.html#tinh-nang" class="hover:text-brand-600 transition-colors">Tính năng</a></li>
         <li><a href="index.html#so-lieu" class="hover:text-brand-600 transition-colors">Hiệu quả</a></li>
-        <li><a href="index.html#cam-nhan" class="hover:text-brand-600 transition-colors">Cảm nhận</a></li>
         <li><a href="pricing.html" class="hover:text-brand-600 transition-colors">Bảng giá</a></li>
-        <li><a href="index.html#faq" class="hover:text-brand-600 transition-colors">Hỏi đáp</a></li>
+        <li><a href="records.html" class="hover:text-brand-600 transition-colors">Dữ liệu đơn hàng</a></li>
+        <li><a href="contact.html" class="text-brand-600 font-bold">Liên hệ</a></li>
       </ul>
 
       <div class="flex items-center gap-3">
@@ -57,7 +57,7 @@
           <span class="inline dark:hidden text-lg leading-none select-none">🌙</span>
         </button>
 
-        <a href="pricing.html" class="btn btn-primary hidden sm:inline-flex">Dùng thử miễn phí</a>
+        <a href="records.html" class="btn btn-primary hidden sm:inline-flex">Xem Dữ Liệu Đơn</a>
 
         <!-- Nút Menu Mobile -->
         <button
@@ -83,19 +83,19 @@
       <ul class="flex flex-col gap-4 font-semibold text-lg text-ink">
         <li><a href="index.html#tinh-nang" class="block py-2 hover:text-brand-600">Tính năng</a></li>
         <li><a href="index.html#so-lieu" class="block py-2 hover:text-brand-600">Hiệu quả</a></li>
-        <li><a href="index.html#cam-nhan" class="block py-2 hover:text-brand-600">Cảm nhận</a></li>
         <li><a href="pricing.html" class="block py-2 hover:text-brand-600">Bảng giá</a></li>
-        <li><a href="index.html#faq" class="block py-2 hover:text-brand-600">Hỏi đáp</a></li>
+        <li><a href="records.html" class="block py-2 hover:text-brand-600">Dữ liệu đơn hàng</a></li>
+        <li><a href="contact.html" class="block py-2 text-brand-600">Liên hệ</a></li>
         <li class="pt-4 border-t border-line">
-          <a href="pricing.html" class="btn btn-primary w-full text-center">Dùng thử miễn phí 14 ngày</a>
+          <a href="records.html" class="btn btn-primary w-full text-center">Xem Dữ Liệu Đơn</a>
         </li>
       </ul>
     </div>
   </header>
 
-  <!-- MAIN CONTENT -->
+  <!-- MAIN CONTENT (Nhiệm vụ 3 Buổi 5: Constraint Validation API) -->
   <main id="main" class="section py-12 lg:py-20">
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
       
       <!-- Cột Trái: Thông tin tư vấn -->
       <div class="lg:col-span-6" data-reveal>
@@ -123,40 +123,99 @@
             <span>Bảo mật dữ liệu đặt sân và doanh thu tuyệt đối 100%</span>
           </div>
         </div>
+
+        <div class="mt-8 p-5 rounded-2xl bg-surface-alt border border-line">
+          <h3 class="font-bold text-ink text-sm">💡 Quy tắc kiểm tra dữ liệu form:</h3>
+          <ul class="mt-2 space-y-1 text-xs text-muted">
+            <li>• Họ và tên: Tối thiểu 3 ký tự.</li>
+            <li>• Số điện thoại: 10 chữ số, bắt đầu bằng 0 (VD: 0912345678).</li>
+            <li>• Email: Đúng định dạng email quốc tế.</li>
+          </ul>
+        </div>
       </div>
 
-      <!-- Cột Phải: Form đăng ký -->
+      <!-- Cột Phải: Form đăng ký có Constraint Validation API -->
       <div class="lg:col-span-6" data-reveal>
-        <div class="card p-8 sm:p-10 shadow-xl">
-          <h2 class="font-display text-2xl font-bold text-ink mb-6">Thông tin đăng ký</h2>
+        <div class="card p-8 sm:p-10 shadow-xl bg-surface">
+          <h2 class="font-display text-2xl font-bold text-ink mb-6">Thông tin đăng ký tư vấn</h2>
           
-          <form id="contact-form" class="space-y-4">
+          <!-- Form có thuộc tính data-validate để validation.js xử lý -->
+          <form 
+            id="contact-form" 
+            data-validate 
+            data-success-message="🎉 Đã gửi thông tin đăng ký thành công! Chuyên viên SânViệt sẽ liên hệ với bạn trong 15 phút."
+            class="space-y-4"
+          >
+            <!-- Trường 1: Họ tên -->
             <div>
               <label for="contact-name" class="field-label">Họ và tên chủ sân *</label>
-              <input type="text" id="contact-name" name="name" class="field-input" placeholder="VD: Nguyễn Văn A" required>
+              <input 
+                type="text" 
+                id="contact-name" 
+                name="name" 
+                class="field-input" 
+                placeholder="VD: Nguyễn Văn A" 
+                minlength="3"
+                required 
+              />
+              <p data-error-for="name" class="field-error" aria-live="polite"></p>
             </div>
 
+            <!-- Trường 2: Số điện thoại (Pattern 10 số bắt đầu bằng 0) -->
             <div>
               <label for="contact-phone" class="field-label">Số điện thoại / Zalo *</label>
-              <input type="tel" id="contact-phone" name="phone" class="field-input" placeholder="VD: 0912 345 678" required>
+              <input 
+                type="tel" 
+                id="contact-phone" 
+                name="phone" 
+                class="field-input" 
+                placeholder="VD: 0912345678" 
+                pattern="0[0-9]{9}"
+                required 
+              />
+              <p data-error-for="phone" class="field-error" aria-live="polite"></p>
             </div>
 
+            <!-- Trường 3: Email -->
             <div>
-              <label for="contact-facility" class="field-label">Tên cụm sân & Địa chỉ</label>
-              <input type="text" id="contact-facility" name="facility" class="field-input" placeholder="VD: Cụm Sân Cầu Lông Victor Q.7">
+              <label for="contact-email" class="field-label">Địa chỉ Email *</label>
+              <input 
+                type="email" 
+                id="contact-email" 
+                name="email" 
+                class="field-input" 
+                placeholder="VD: chusan@gmail.com" 
+                required 
+              />
+              <p data-error-for="email" class="field-error" aria-live="polite"></p>
             </div>
 
+            <!-- Trường 4: Tên cụm sân -->
+            <div>
+              <label for="contact-facility" class="field-label">Tên cụm sân & Địa chỉ *</label>
+              <input 
+                type="text" 
+                id="contact-facility" 
+                name="facility" 
+                class="field-input" 
+                placeholder="VD: Cụm Sân Cầu Lông Victor Q.7" 
+                required 
+              />
+              <p data-error-for="facility" class="field-error" aria-live="polite"></p>
+            </div>
+
+            <!-- Trường 5: Số lượng sân -->
             <div>
               <label for="contact-courts" class="field-label">Số lượng sân cầu lông</label>
               <select id="contact-courts" name="courts" class="field-input cursor-pointer">
-                <option value="under-5">Dưới 5 sân (Gói Cụm Nhỏ)</option>
-                <option value="5-20" selected>Từ 5 - 20 sân (Gói Chuyên Nghiệp)</option>
-                <option value="over-20">Trên 20 sân / Chuỗi nhiều chi nhánh</option>
+                <option value="under-5">Dưới 5 sân (Gói Cụm Nhỏ - 199k)</option>
+                <option value="5-20" selected>Từ 5 - 20 sân (Gói Chuyên Nghiệp - 499k)</option>
+                <option value="over-20">Trên 20 sân / Chuỗi nhiều chi nhánh (899k)</option>
               </select>
             </div>
 
-            <button type="submit" class="btn btn-primary w-full py-3.5 text-base font-bold mt-2">
-              Kích hoạt dùng thử 14 ngày
+            <button type="submit" class="btn btn-primary w-full py-3.5 text-base font-bold mt-2 shadow-lg shadow-emerald-500/25">
+              Kích hoạt dùng thử 14 ngày miễn phí
             </button>
           </form>
         </div>
@@ -175,7 +234,8 @@
       <div class="flex gap-6">
         <a href="index.html" class="hover:text-brand-600 transition-colors">Trang chủ</a>
         <a href="pricing.html" class="hover:text-brand-600 transition-colors">Bảng giá</a>
-        <a href="index.html#faq" class="hover:text-brand-600 transition-colors">Hỏi đáp</a>
+        <a href="records.html" class="hover:text-brand-600 transition-colors">Dữ liệu</a>
+        <a href="contact.html" class="hover:text-brand-600 transition-colors">Liên hệ</a>
       </div>
     </div>
   </footer>
