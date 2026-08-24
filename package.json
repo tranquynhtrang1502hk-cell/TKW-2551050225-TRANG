@@ -7,13 +7,19 @@
     "dev": "tailwindcss -i ./src/input.css -o ./dist/output.css --watch",
     "build": "tailwindcss -i ./src/input.css -o ./dist/output.css --minify"
   },
-  "dependencies": {
-    "@tailwindcss/cli": "^4.0.0",
-    "tailwindcss": "^4.0.0"
-  },
   "main": "index.js",
-  "devDependencies": {},
+  "devDependencies": {
+    "tailwindcss": "^3.4.19"
+  },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tranquynhtrang1502hk-cell/TKW-2551050225-TRANG.git"
+  },
+  "bugs": {
+    "url": "https://github.com/tranquynhtrang1502hk-cell/TKW-2551050225-TRANG/issues"
+  },
+  "homepage": "https://github.com/tranquynhtrang1502hk-cell/TKW-2551050225-TRANG#readme"
 }
